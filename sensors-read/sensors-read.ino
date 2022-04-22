@@ -69,9 +69,29 @@ void loop() {
 
   if (IMU.accelerationAvailable()) {
     IMU.readAcceleration(x, y, z);
-
-    Serial.println();
     Serial.println("Acceleration in G's");
+    Serial.println("X\tY\tZ");
+    Serial.print(x);
+    Serial.print('\t');
+    Serial.print(y);
+    Serial.print('\t');
+    Serial.println(z);
+  }
+
+  if (IMU.gyroscopeAvailable()) {
+    IMU.readGyroscope(x, y, z);
+    Serial.println("Gyroscope in degrees/second");
+    Serial.println("X\tY\tZ");
+    Serial.print(x);
+    Serial.print('\t');
+    Serial.print(y);
+    Serial.print('\t');
+    Serial.println(z);
+  }
+
+  if (IMU.magneticFieldAvailable()) {
+    IMU.readMagneticField(x, y, z);
+    Serial.println("Magnetic Field in uT");
     Serial.println("X\tY\tZ");
     Serial.print(x);
     Serial.print('\t');
@@ -92,7 +112,6 @@ void loop() {
     proximity = APDS.readProximity();
   }
 
-
   Serial.print("PR=");
   Serial.print(proximity);
   Serial.print(" rgb=");
@@ -102,6 +121,7 @@ void loop() {
   Serial.print(",");
   Serial.println(b);
 
+  Serial.println();
   Serial.println("=======================");
   // wait 1 second to print again
   delay(1000);
