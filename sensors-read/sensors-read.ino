@@ -123,7 +123,7 @@ void loop() {
 
   Serial.println();
   Serial.println("=======================");
-  // wait 1 second to print again
+  // wait 1 second to print again   
   delay(1000);
 
 }
